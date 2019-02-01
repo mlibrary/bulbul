@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```
+ |            |
+(o)> BULBUL <(o)
+ "            "
+```
 
-Things you may want to cover:
+## Installation
+* Install postgresql with a postgres user
+* Run `bin/setup`
+* Run `bin/rails server`
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Testing
+* Run `bin/rake ci`
