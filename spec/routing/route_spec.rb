@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe 'Routes', type: :routing do
-  describe '/' do
+  describe '/hello' do
     it 'is successful' do
       expect(get: '/hello').to route_to(controller: 'hello', action: 'show')
     end

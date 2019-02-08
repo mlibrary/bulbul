@@ -61,3 +61,24 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+# For system specs
+Chromedriver.set_version "2.36"
+# On system spec failure, don't dump the (binary!) screenshot to the console,
+# just save it to disk which is probably ~/tmp/screenshots
+ENV['RAILS_SYSTEM_TESTING_SCREENSHOT'] = "simple"
+
+require 'capybara/rspec'
+# We need a large screen size for CozySunBear system specs in order to get 2-up
+# pages and other things
+# https://stackoverflow.com/a/47290251
+Capybara.register_driver :selenium_chrome_headless do |app|
+  options = Selenium::WebDriver::Chrome::Options.new
+  [
+    "headless",
+    "window-size=1280x1280",
+    "disable-gpu" # https://developers.google.com/web/updates/2017/04/headless-chrome
+  ].each { |arg| options.add_argument(arg) }
+
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+end

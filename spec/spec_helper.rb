@@ -46,6 +46,17 @@ RSpec.configure do |config|
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
+  # System specs (new in rails 5.1) use headless chrome and Capybara
+  config.before(:each, type: :system) do
+    driven_by :selenium_chrome_headless
+    # If you actually want to watch these happen in the browser (and have chrome installed)
+    # driven_by :selenium_chrome
+  end
+
+  config.before(:all, type: :system) do
+    Capybara.server = :puma, { Silent: true }
+  end
+
   # The settings below are suggested to provide a good initial experience
   # with RSpec, but feel free to customize to your heart's content.
 

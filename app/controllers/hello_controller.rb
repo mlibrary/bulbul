@@ -2,6 +2,6 @@
 
 class HelloController < ApplicationController
   def show
-    render plain: "Hello"
+    @greeting = "You"
   end
 end
