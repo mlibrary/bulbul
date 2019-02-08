@@ -6,6 +6,7 @@ AllCops:
     - 'db/**/*'
     - 'log/**/*'
     - 'tmp/**/*'
+    - 'node_modules/**/*'
 
 Metrics/LineLength:
   Enabled: false
@@ -14,4 +15,7 @@ Style/Documentation:
   Enabled: false
 
 Style/StringLiterals:
+  Enabled: false
+
+RSpec/MultipleExpectations:
   Enabled: false
